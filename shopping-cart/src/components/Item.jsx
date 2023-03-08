@@ -1,10 +1,11 @@
 import React from "react";
+import clothes from "../data/products"; 
 
-export default function Item() {
+export default function Item(props) {
     return (
         <div> 
-            <h1> Item </h1>
-            <p> Testing </p>
+            <img src={props.image}> </img>
+            <p> {props.name} </p>
         </div>
     )
 }

@@ -4,9 +4,17 @@ import Homepage from './Homepage';
 import Footer from './Footer';
 import Item from './Item';
 import {Background, Title, Page} from '../styles'
-import products from '../data/products'
+import clothes from '../data/products'
 
+const [inventory, setInventory] = React.useState([]);
 
+React.useEffect(() => {
+    const result = []
+    for (let i = 0; i < clothes.length; i++) {
+        result[i] = clothes[i];
+    }
+    setInventory(result)
+},[]) 
 
 export default function Catalog() {
     return (
@@ -17,7 +25,11 @@ export default function Catalog() {
                 <div className="home"> 
                 <Title> C A T A L O G  </Title>
                 </div>
-                    <Item/>
+                <div>
+                    {inventory.map((item) => {
+                        <Item id={item.id} image={item.image} name={item.name}/>
+                    })}
+                </div>
             </Page>
         </Background>
     </div>
