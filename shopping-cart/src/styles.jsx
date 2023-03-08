@@ -61,7 +61,6 @@ export const Nav = styled.nav`
 
 `;
 
-
 export const Title = styled.h2`
     font-size: 2.5em;
     text-align: center;
@@ -74,7 +73,7 @@ export const HomeText = styled.h4`
     font-size: 1em;
 `
 
-export const Home = styled.section`
+export const Page = styled.section`
     height: 100vh;
     margin: 0px;
     padding: 0px;
