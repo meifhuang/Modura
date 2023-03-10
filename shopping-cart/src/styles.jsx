@@ -5,7 +5,8 @@ export const theme = {
     bg: "#FDFCFC",
     btn: "#546871",
     lines: "#ddd5cf",
-    cart: "#f5f5f5"
+    cart: "#f5f5f5",
+    qtybtn: "#B1A7A0"
 }
 
 export const Background = styled.div`
@@ -123,12 +124,11 @@ export const ItemImg = styled.img`
 export const CartDiv = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     align-items: center;
     position: fixed;
     right: 0;
     top: 0;
-    width: 25%;
+    width: 30%;
     height: 100%;
     z-index: 10;
     overflow-y: scroll;
@@ -142,11 +142,58 @@ export const CartDiv = styled.div`
     }
 
     .checkout {
-        width: 20em;
+        width: 15em;
         height: 40px;
         background: ${props => props.theme.btn};
         color: ${props => props.theme.bg};
         border-radius: 3px;
+        margin-bottom: 1em;
+    }
+
+    img {
+        width: 13em;
+        height: 13em;
+    }
+
+    h4, h5 {
+        margin: 0px;
+        margin-top: .5em;
+    }
+
+    .quantity {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .cartItems {
+        display: flex; 
+        flex-direction: column;
+        align-items: center;
+        
+    }
+
+    button {
+        background: ${props => props.theme.qtybtn}; 
+        color: ${props => props.theme.bg};
+        border-radius: 3px;
+        padding: .2em .5em;
+        margin: .8em;
+    }
+
+    .options {
+        display: flex; 
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .close {
+        width: 15em;
+        height: 40px;
+        margin: 0px;
+        padding: 0px;
+        margin-bottom: 1em;
     }
 
    
