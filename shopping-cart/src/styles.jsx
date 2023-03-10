@@ -5,11 +5,26 @@ export const theme = {
     bg: "#FDFCFC",
     btn: "#546871",
     lines: "#ddd5cf",
+    cart: "#f5f5f5"
 }
 
 export const Background = styled.div`
-background: linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url(${background});
-height: 100vh;
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url(${background});
+    height: 100vh;
+
+    .catalog {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-template-rows: auto auto;
+        justify-content: center;
+    }
+    .catalog > * {
+        margin: 1.5em;
+    }
+
+    h3, p { 
+        margin: 1px;
+    }
 `
 
 export const Logo = styled.img`
@@ -31,6 +46,16 @@ export const Button = styled.button`
     width: 25em;
     height: 3em;
     margin-bottom: 1em;
+`
+
+export const AddCart = styled.button`
+    background: ${props => props.theme.btn};
+    color: ${props => props.theme.bg};
+    text-align: center; 
+    border-radius: 3px;
+    width: 325px;
+    height: 2.5em;
+    margin-top: 1em;
 `
 
 export const Image = styled.img`
@@ -57,6 +82,9 @@ export const Nav = styled.nav`
         border: 1px solid ${props => props.theme.lines}; 
         width: 200px;
         height: 25px;
+    }
+    a {
+       cursor: pointer;
     }
 
 `;
@@ -87,4 +115,39 @@ export const Page = styled.section`
     }
 
 ` 
+export const ItemImg = styled.img`
+    width: 325px;
+    height: 400px;
+`
 
+export const CartDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 25%;
+    height: 100%;
+    z-index: 10;
+    overflow-y: scroll;
+    background-color: ${props => props.theme.cart}; 
+    border: 1px solid black;
+
+    h2 {
+        font-family: Hahmlet;
+        font-weight: 700;
+        text-align: center;
+    }
+
+    .checkout {
+        width: 20em;
+        height: 40px;
+        background: ${props => props.theme.btn};
+        color: ${props => props.theme.bg};
+        border-radius: 3px;
+    }
+
+   
+`
