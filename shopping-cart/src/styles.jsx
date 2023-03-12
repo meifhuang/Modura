@@ -20,7 +20,7 @@ export const Background = styled.div`
         flex-direction: column;
         align-items: center;
     }
-
+   
     .catalog {
         display: grid;
         grid-template-columns: auto auto auto;
@@ -110,6 +110,7 @@ export const Title = styled.h2`
 export const HomeText = styled.h4`
     font-family: Hahmlet; 
     font-size: 1em;
+    margin: 1em !important;
 `
 
 
