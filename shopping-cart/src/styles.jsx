@@ -1,4 +1,4 @@
-import styled from 'styled-components'; 
+import styled from 'styled-components';
 import background from './assets/background.jpeg';
 
 export const theme = {
@@ -11,19 +11,28 @@ export const theme = {
 
 export const Background = styled.div`
     background: linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url(${background});
-    height: 100vh;
+    margin: 0px;
+    padding: 0px;
+    border-top: 2px solid #ddd5cf;
+
+    .home {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
     .catalog {
         display: grid;
         grid-template-columns: auto auto auto;
-        grid-template-rows: auto auto;
+        grid-template-rows: 1fr 1fr;
         justify-content: center;
+        align-items: center;
     }
     .catalog > * {
         margin: 1.5em;
     }
 
-    h3, p { 
+    h4, h5 { 
         margin: 1px;
     }
 `
@@ -37,6 +46,7 @@ export const Logo = styled.img`
 export const Icon = styled.img`
     width: 20px;
     height: 20px;
+    cursor: pointer;
 `
 
 export const Button = styled.button`
@@ -54,7 +64,7 @@ export const AddCart = styled.button`
     color: ${props => props.theme.bg};
     text-align: center; 
     border-radius: 3px;
-    width: 325px;
+    width: 299px;
     height: 2.5em;
     margin-top: 1em;
 `
@@ -76,7 +86,7 @@ export const Nav = styled.nav`
     }
 
     .nav-divs > * {
-        margin-right: 1em;
+        margin-right: 1em;  
         align-self: center; 
     }
     .search-bar {
@@ -102,99 +112,8 @@ export const HomeText = styled.h4`
     font-size: 1em;
 `
 
-export const Page = styled.section`
-    height: 100vh;
-    margin: 0px;
-    padding: 0px;
-    border-top: 2px solid #ddd5cf;
 
-    .home {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        height: 50%;
-    }
-
-` 
 export const ItemImg = styled.img`
-    width: 325px;
-    height: 400px;
-`
-
-export const CartDiv = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: fixed;
-    right: 0;
-    top: 0;
-    width: 30%;
-    height: 100%;
-    z-index: 10;
-    overflow-y: scroll;
-    background-color: ${props => props.theme.cart}; 
-    border: 1px solid black;
-
-    h2 {
-        font-family: Hahmlet;
-        font-weight: 700;
-        text-align: center;
-    }
-
-    .checkout {
-        width: 15em;
-        height: 40px;
-        background: ${props => props.theme.btn};
-        color: ${props => props.theme.bg};
-        border-radius: 3px;
-        margin-bottom: 1em;
-    }
-
-    img {
-        width: 13em;
-        height: 13em;
-    }
-
-    h4, h5 {
-        margin: 0px;
-        margin-top: .5em;
-    }
-
-    .quantity {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .cartItems {
-        display: flex; 
-        flex-direction: column;
-        align-items: center;
-        
-    }
-
-    button {
-        background: ${props => props.theme.qtybtn}; 
-        color: ${props => props.theme.bg};
-        border-radius: 3px;
-        padding: .2em .5em;
-        margin: .8em;
-    }
-
-    .options {
-        display: flex; 
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .close {
-        width: 15em;
-        height: 40px;
-        margin: 0px;
-        padding: 0px;
-        margin-bottom: 1em;
-    }
-
-   
+    width: 300px;
+    height: 380px;
 `

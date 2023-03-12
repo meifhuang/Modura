@@ -1,17 +1,16 @@
 import React from "react";
-import clothes from "../data/products"; 
-import {ItemImg, AddCart, theme} from  "../styles";
+import { ItemImg, AddCart, theme } from "../styles";
 
 export default function Item(props) {
 
-    const {image, name, price} = props
+    const { image, name, price, addToCart } = props
 
     return (
         <div className="item">
             <ItemImg src={image}></ItemImg>
-            <h3> {name} </h3>
-            <p> {price} </p>
-            <AddCart theme={theme} > Add to basket </AddCart>
+            <h4> {name} </h4>
+            <h5> ${price} </h5>
+            <AddCart theme={theme} onClick={addToCart} > Add to basket </AddCart>
         </div>
     )
 }
