@@ -23,10 +23,8 @@ export const Background = styled.div`
    
     .catalog {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(500px,1fr));
+        grid-template-columns: repeat(auto-fit, minmax(450px,1fr));
         grid-template-rows: 1fr 1fr;
-      
-        align-items: center;
     }
     .catalog > * {
         margin: 1.5em;
@@ -87,7 +85,7 @@ export const Nav = styled.nav`
     }
 
     .nav-divs > * {
-        margin-right: 1em;  
+        margin-right: 1.5em;  
         align-self: center; 
     }
     .search-bar {
