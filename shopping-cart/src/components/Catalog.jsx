@@ -5,10 +5,25 @@ import Footer from './Footer';
 import Cart from './Cart';
 import Item from './Item';
 import { Background, Title } from '../styles'
+import { addToCart } from './CartSlice'
+import { useDispatch, useSelector } from 'react-redux';
 
 export default function Catalog(props) {
 
-    const { products, addToCart } = props;
+    // const { products, addToCart } = props;
+    const { products } = props; 
+    const [addedToCart, setAddedToCart] = useState({})
+
+    const dispatch = useDispatch() 
+
+    const handleAddToCart = (product) => {
+        dispatch(addToCart(product));
+        setAddedToCart((prev) => ({
+            ...prev, 
+            [product.name]: true
+        }))
+    }
+
 
     return (
         <div className="App">
@@ -17,7 +32,7 @@ export default function Catalog(props) {
                 <div className="catalog">
                     {products.map((item) => {
                         return (
-                            <Item key={item.id} image={item.image} name={item.title} price={item.price} addToCart={() => addToCart(item)} />
+                            <Item key={item.id} image={item.image} name={item.title} price={item.price} addToCart={() => handleAddToCart(item)} />
                         )
                     })}
                 </div>

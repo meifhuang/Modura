@@ -2,20 +2,23 @@ import React, { useState } from "react";
 import styled from 'styled-components';
 import { theme, Button } from "../styles";
 import clothes from "../data/products";
+import { useSelector, useDispatch} from 'react-redux';
 
 
 export default function Cart(props) {
 
     const { toggleCart, addToCart, cartItems, removeCart, checkout } = props;
     const totalPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
+    
+    const cart = useSelector(state => state.cart.items);
 
     return (
         <CartDiv theme={theme}>
             <div className="cart">
                 <h2> Cart </h2>
-                {cartItems.length === 0 ?
+                {cart.length === 0 ?
                     <div className="cartItems"> Cart Is Empty </div> :
-                    cartItems.map((item) => {
+                    cart.map((item) => {
                         return (
                             <div className="cartItems">
                                 <img src={item.image}></img>
