@@ -54,6 +54,17 @@ const CartDiv = styled.div`
     background-color: ${props => props.theme.cart}; 
   
 
+    @media (max-width: 1080px) {
+        width: 50%;
+        }
+
+
+    @media (max-width: 912px) {
+    width: 100%;
+    }
+
+
+
     h2 {
         font-family: Hahmlet;
         font-weight: 700;

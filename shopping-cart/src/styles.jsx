@@ -23,18 +23,17 @@ export const Background = styled.div`
    
     .catalog {
         display: grid;
-        grid-template-columns: auto auto auto;
+        grid-template-columns: repeat(auto-fit, minmax(450px,1fr));
         grid-template-rows: 1fr 1fr;
-        justify-content: center;
-        align-items: center;
     }
     .catalog > * {
         margin: 1.5em;
+        justify-self: center;
     }
 
     h4, h5 { 
         margin: 1px;
-    }
+    } 
 `
 
 export const Logo = styled.img`
@@ -86,7 +85,7 @@ export const Nav = styled.nav`
     }
 
     .nav-divs > * {
-        margin-right: 1em;  
+        margin-right: 1.5em;  
         align-self: center; 
     }
     .search-bar {
@@ -115,6 +114,6 @@ export const HomeText = styled.h4`
 
 
 export const ItemImg = styled.img`
-    width: 300px;
+    width: 100%;
     height: 380px;
 `
