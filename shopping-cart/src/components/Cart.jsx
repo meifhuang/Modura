@@ -3,21 +3,43 @@ import styled from 'styled-components';
 import { theme, Button } from "../styles";
 import clothes from "../data/products";
 import { useSelector, useDispatch } from 'react-redux';
-import { removeFromCart } from "./CartSlice";
+import { removeFromCart, updateQuantity } from "./CartSlice";
 
 
 export default function Cart(props) {
 
+    const { toggleCart } = props;
+
     const cart = useSelector(state => state.cart.items);
     const dispatch = useDispatch()
-
-    const { toggleCart, removeCart, checkout } = props;
     const totalPrice = cart.reduce((a, c) => a + c.price * c.qty, 0);
     
 
     const handleRemove = ( item ) => {
         dispatch(removeFromCart(item.id))
     }
+
+    const handleIncrement = ( item ) => {
+        dispatch(updateQuantity({id: item.id, incr: 1}))
+    }
+
+    const handleDecrement = ( item ) => {
+        if (item.qty > 1) { 
+        dispatch(updateQuantity({id: item.id, qty: 1}))
+        }
+        else {
+            handleRemove(item)
+        }
+    }
+    const checkout = () => {
+        if (state.cart.items) { 
+        window.alert("Purchased!")
+        setCartItems([]);
+        }
+        else {
+            window.alert("Cart's empty!")
+        }
+      }
 
     return (
         <CartDiv theme={theme}>
@@ -32,9 +54,9 @@ export default function Cart(props) {
                                 <h4> {item.title} </h4>
                                 <h5> ${(item.price * item.qty).toFixed(2)} </h5>
                                 <div className="quantity">
-                                    <button onClick={() => addToCart(item)}> + </button>
+                                    <button onClick={() => handleIncrement(item)}> + </button>
                                     <h3> {item.qty} </h3>
-                                    <button onClick={() => removeCart(item)}> - </button>
+                                    <button onClick={() => handleDecrement(item)}> - </button>
             
                                 </div>
                                 <button onClick={()=> handleRemove(item)}> Remove </button> 

@@ -12,11 +12,17 @@ export default function Catalog(props) {
 
     // const { products, addToCart } = props;
     const { products } = props; 
-    const [addedToCart, setAddedToCart] = useState({})
+    const [cartState, setcartState] = useState(false);
+
+    const toggleCart = () => {
+        setcartState(!cartState);
+    }
+    
 
     const dispatch = useDispatch() 
 
     const handleAddToCart = (product) => {
+        toggleCart()
         dispatch(addToCart(product));
     }
 
