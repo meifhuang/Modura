@@ -18,10 +18,6 @@ export default function Catalog(props) {
 
     const handleAddToCart = (product) => {
         dispatch(addToCart(product));
-        setAddedToCart((prev) => ({
-            ...prev, 
-            [product.name]: true
-        }))
     }
 
 

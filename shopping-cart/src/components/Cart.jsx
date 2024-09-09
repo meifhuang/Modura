@@ -2,15 +2,22 @@ import React, { useState } from "react";
 import styled from 'styled-components';
 import { theme, Button } from "../styles";
 import clothes from "../data/products";
-import { useSelector, useDispatch} from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { removeFromCart } from "./CartSlice";
 
 
 export default function Cart(props) {
 
-    const { toggleCart, addToCart, cartItems, removeCart, checkout } = props;
-    const totalPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
-    
     const cart = useSelector(state => state.cart.items);
+    const dispatch = useDispatch()
+
+    const { toggleCart, removeCart, checkout } = props;
+    const totalPrice = cart.reduce((a, c) => a + c.price * c.qty, 0);
+    
+
+    const handleRemove = ( item ) => {
+        dispatch(removeFromCart(item.id))
+    }
 
     return (
         <CartDiv theme={theme}>
@@ -28,7 +35,9 @@ export default function Cart(props) {
                                     <button onClick={() => addToCart(item)}> + </button>
                                     <h3> {item.qty} </h3>
                                     <button onClick={() => removeCart(item)}> - </button>
+            
                                 </div>
+                                <button onClick={()=> handleRemove(item)}> Remove </button> 
                             </div>
                         )
                     })}
@@ -110,8 +119,8 @@ const CartDiv = styled.div`
         background: ${props => props.theme.qtybtn}; 
         color: ${props => props.theme.bg};
         border-radius: 3px;
-        padding: .2em .5em;
-        margin: .8em;
+        padding: .3em .6em;
+        margin: .7em;
     }
 
     .options {
