@@ -11,18 +11,13 @@ import { useDispatch, useSelector } from 'react-redux';
 export default function Catalog(props) {
 
     // const { products, addToCart } = props;
-    const { products } = props; 
-    const [cartState, setcartState] = useState(false);
+    const { products, setcartState} = props; 
 
-    const toggleCart = () => {
-        setcartState(!cartState);
-    }
-    
-
+ 
     const dispatch = useDispatch() 
 
     const handleAddToCart = (product) => {
-        toggleCart()
+        setcartState(true)
         dispatch(addToCart(product));
     }
 

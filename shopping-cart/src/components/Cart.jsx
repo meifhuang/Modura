@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { theme, Button } from "../styles";
 import clothes from "../data/products";
 import { useSelector, useDispatch } from 'react-redux';
-import { removeFromCart, updateQuantity } from "./CartSlice";
+import { removeFromCart, updateQuantity, emptyCart } from "./CartSlice";
 
 
 export default function Cart(props) {
@@ -25,16 +25,17 @@ export default function Cart(props) {
 
     const handleDecrement = ( item ) => {
         if (item.qty > 1) { 
-        dispatch(updateQuantity({id: item.id, qty: 1}))
+        dispatch(updateQuantity({id: item.id, incr: -1}))
         }
         else {
             handleRemove(item)
         }
     }
+
     const checkout = () => {
-        if (state.cart.items) { 
-        window.alert("Purchased!")
-        setCartItems([]);
+        if (cart.length >= 1) { 
+        window.alert(`Purchased! Your total was $${totalPrice}.00`)
+        dispatch(emptyCart())
         }
         else {
             window.alert("Cart's empty!")

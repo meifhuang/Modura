@@ -46,7 +46,7 @@ export default function App() {
       <Header toggleCart={toggleCart} />
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route path="/catalog" element={<Catalog products={data}/>} />
+        <Route path="/catalog" element={<Catalog products={data} setcartState={setcartState}/>} />
       </Routes>
       {cartState ? <Cart toggleCart={toggleCart}/> : <> </>}
     </BrowserRouter>
